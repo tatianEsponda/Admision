@@ -1,0 +1,32 @@
+.respuesta{
+    border-radius: 21px 21px 21px 21px;
+    -moz-border-radius: 21px 21px 21px 21px;
+    -webkit-border-radius: 21px 21px 21px 21px;
+    border: 0px solid #000000;
+    margin-top: 10px;
+  }
+  
+  .numeroRespuesta{
+    float: left;
+    position: absolute;
+    margin-right: 20px;
+  }
+  .content{
+    float: left; margin-left: 50px;
+  }
+  
+  .green{
+    color: green;
+  }
+  .red{
+    color: red;
+  }
+
+  .inactive{
+    display:none;
+  }
+
+  .active{
+    display:inline-block;
+  }
+  

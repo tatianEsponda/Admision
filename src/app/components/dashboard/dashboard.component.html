@@ -1,0 +1,33 @@
+
+<div class="center">
+    <span>Examen del libro : {{books.libro}}</span>
+</div>
+<div class="container" *ngFor="let book of books.preguntas;let i=index;"
+    [style.display]="selectedIndex == i ? 'block' : 'none'">
+    <div class="row">
+      <!--Contexto-->
+        <div id="seccionContexto" class="col-md-12 estiloContexto">
+            <span>{{book.contexto}}</span>
+            <!--<app-contexto></app-contexto>-->
+        </div>
+      <!--Pregunta-->
+        <div id="seccionPregunta" class="col-md-12 preguntaEstilo">
+            <span>{{book.pregunta}}</span>
+            <!--<app-pregunta></app-pregunta>-->
+        </div>
+      <!--Respuesta-->
+        <div id="seccionNumeroRespuesta" 
+             *ngFor="let respuesta of book.respuestas;let j=index;" >
+            <button (click)="onRespuesta(respuesta)" class="btn respuesta" >
+                {{j+1}}  {{respuesta.contenido}}
+                {{activarCorrecta}}
+                {{activarInCorrecta}}
+                <p class="green" [style.display]="respuesta.respondio == true && activarRespuesta == true ? 'block' : 'none'">Correcta</p>
+                <p class="red" [style.display]="respuesta.respondio == false && activarRespuesta == true ? 'block' : 'none'">Incorrecta</p>
+            </button>
+        </div>
+    </div>
+</div>
+
+<button class="prev" (click)="previous()">Anterior</button> 
+<button class="next" (click)="next()" [disabled]="!activarRespuesta">Siguiente</button>
